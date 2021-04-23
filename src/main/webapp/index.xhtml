@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui">
+
+    <html>
+        <h:head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <title>Prueba con Primefaces</title>
+        </h:head>
+
+        <h:body>
+            <h:form>
+
+                <p:panel header="Aplicación de simulador">
+                    <br/>
+                    <span class="ui-float-label">
+                        <p:inputText id="float-input" value="#{manejadorBean.nombre}"/>
+                        <p:outputLabel for="@previous" value="Nombre"/>
+                    </span>
+
+                    <br/>
+                    <span class="ui-float-label">
+                        <p:calendar pattern="dd/MM/yyyy" value="#{manejadorBean.fecha}"/>
+                        <p:outputLabel for="@previous" value="Fecha Nacimiento"/>
+                    </span>
+                    <br/>
+                    <span >
+                        <p:outputLabel for="@next" value="Plazo"/>
+                        <br/>
+                        <p:selectOneMenu id="labeled" value="#{manejadorBean.plazo}" label="Seleccione Plazo">
+                            <f:selectItem itemLabel="12" itemValue="12"/>
+                            <f:selectItem itemLabel="24" itemValue="24"/>
+                            <f:selectItem itemLabel="36" itemValue="36"/>
+                        </p:selectOneMenu>
+                        
+                    </span>
+                    <br/>
+                    <br/>
+                    <span class="ui-float-label">
+                        <p:inputText id="valor" value="#{manejadorBean.valor}"/>
+                        <p:outputLabel for="@previous" value="Valor"/>
+                    </span>
+                    <br/>
+
+
+
+                    <p:commandButton value="Calcular" action="#{manejadorBean.guardar()}" update="cuota"/>
+                    <br/>
+                    <h:outputLabel value="Cuota :" />
+                    <p:inputText id="cuota" value="#{manejadorBean.cuota}"/>
+                </p:panel>
+            </h:form>
+        </h:body>
+    </html>
+</f:view>
